@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ProyectLayout"
+    }
+  },
+  "defaultProject": "ProyectLayout",
+  "cli": {
+    "analytics": false
+  }
 }

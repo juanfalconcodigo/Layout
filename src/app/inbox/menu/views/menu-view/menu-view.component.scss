@@ -1,0 +1,18 @@
+.menu-inbox {
+    margin-top: 5rem;
+    display: flex;
+    &__box {
+        width: 150px;
+        height: 150px;
+        position: relative;
+        margin-right: 10px;
+        background-color: whitesmoke;
+        padding: 1rem;
+        &>a {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            text-decoration: none;
+        }
+    }
+}
