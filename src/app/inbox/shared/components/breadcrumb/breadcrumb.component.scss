@@ -1,4 +1,24 @@
 .breadcrumb-navigation {
+    width: 100%;
     background-color: rgb(245, 239, 239);
     padding: .8rem;
+    display: flex;
+    h2 {
+        margin-right: .6rem;
+        a {
+            text-decoration: none;
+            color: black;
+            &::selection {
+                color: black;
+            }
+        }
+    }
+    &__path {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        ol {
+            list-style: none;
+        }
+    }
 }

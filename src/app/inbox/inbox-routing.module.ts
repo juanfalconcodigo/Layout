@@ -22,10 +22,10 @@ const routes: Routes = [
         }
       },
       {
-        path: 'EUROPAWEB',
+        path: 'EUROPA_WEB',
         loadChildren: () => import('src/app/inbox/feed-back/feed-back.module').then((m) => m.FeedBackModule),
         data: {
-          breadcrumb: 'FEEDBACK'
+          breadcrumb: 'EUROPA_WEB'
         }
       }
 

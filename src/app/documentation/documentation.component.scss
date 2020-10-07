@@ -1,0 +1,23 @@
+.documentation-container {
+    margin-top: 2rem;
+    max-width: 960px;
+    width: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: auto;
+    &__options {
+        ul {
+            position: fixed;
+            list-style: none;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+    }
+    &__content {
+        div {
+            padding: 2.5rem;
+            font-size: 1.5rem;
+        }
+    }
+}

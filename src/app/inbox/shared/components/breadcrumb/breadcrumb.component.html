@@ -1,3 +1,14 @@
 <section class="breadcrumb-navigation">
-    <h2>Portals > </h2>
+    <h2> <a [routerLink]="['/inbox']">Portals ></a> </h2>
+    <breadcrumb #parent class="breadcrumb-navigation__path">
+        <ol>
+            <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
+                <li *ngIf="!route.terminal" class="breadcrumb-item">
+                    <a href="" [routerLink]="[route.url]">{{ route.displayName }}</a>
+                </li>
+                <li *ngIf="route.terminal" class="breadcrumb-item active" aria-current="page">{{ route.displayName }}
+                </li>
+            </ng-template>
+        </ol>
+    </breadcrumb>
 </section>
