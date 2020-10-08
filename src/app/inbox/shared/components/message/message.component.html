@@ -1,0 +1,15 @@
+<section class="inbox-message-container">
+    <div class="inbox-message-container__header">
+        <div>
+            ✉ Mensajes(729)
+        </div>
+        <div>1 de 73 > </div>
+    </div>
+    <div class="inbox-message-container__messages">
+        <ul>
+            <li *ngFor="let message of messages">
+                {{message.userComment}}
+            </li>
+        </ul>
+    </div>
+</section>

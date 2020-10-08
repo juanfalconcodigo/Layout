@@ -1,0 +1,13 @@
+.inbox-extra-container {
+    width: 100%;
+    height: auto;
+    background-color: #F9F9F9;
+    div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        p {
+            margin-left: 1rem;
+        }
+    }
+}
