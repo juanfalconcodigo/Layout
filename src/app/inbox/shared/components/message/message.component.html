@@ -1,13 +1,13 @@
 <section class="inbox-message-container">
     <div class="inbox-message-container__header">
         <div>
-            ✉ Mensajes(729)
+            ✉ Mensajes({{totalElements}})
         </div>
-        <div>1 de 73 > </div>
+        <div>1 de {{totalPages}} > </div>
     </div>
     <div class="inbox-message-container__messages">
         <ul>
-            <li *ngFor="let message of messages">
+            <li *ngFor="let message of content" (click)="messageSelected(message.feedbackItemId)">
                 {{message.userComment}}
             </li>
         </ul>

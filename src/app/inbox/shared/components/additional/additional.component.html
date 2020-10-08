@@ -1,13 +1,13 @@
-<div class="inbox-additional-container">
+<div class="inbox-additional-container" *ngIf="feedBackResponse">
     <h3>Additional Information ^</h3>
     <div>
-        <p>Id: ded</p>
-        <p>Type: fefefef</p>
-        <p>User: fefefe</p>
+        <p>Id: {{feedBackResponse.feedbackItemId}}</p>
+        <p>Type: {{feedBackResponse.feedbackType.name}}</p>
+        <p>User: {{'anonymus'}}</p>
         <p>Date: 9 de Octubre del 2020</p>
-        <p>Module: fefef</p>
-        <p>Url: fefef</p>
-        <p>Browser: fefefe</p>
-        <p>OS: fefefef</p>
+        <p>Module: {{feedBackResponse.moduleName}}</p>
+        <p>Url: {{feedBackResponse.pageUrl}}</p>
+        <p>Browser: {{feedBackResponse.browserName}}</p>
+        <p>OS: {{feedBackResponse.operatingSystemName}} {{feedBackResponse.operatingSystemVersion}}</p>
     </div>
 </div>

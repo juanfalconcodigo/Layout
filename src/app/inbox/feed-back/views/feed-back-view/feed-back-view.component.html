@@ -1,12 +1,12 @@
 <div class="feed-back">
     <section class="feed-back__messages">
-        <app-message></app-message>
+        <app-message [content]="feedBackResponseList.content" [totalElements]="feedBackResponseList.totalElements" [totalPages]="feedBackResponseList.totalPages" (feedSelect)="feedSelect($event)"></app-message>
     </section>
     <section class="feed-back__report">
-        <app-content></app-content>
+        <app-content [feedBackResponse]="feedBackResponse"></app-content>
     </section>
     <section class="feed-back__additionals">
-        <app-additional></app-additional>
-        <app-extra></app-extra>
+        <app-additional [feedBackResponse]="feedBackResponse"></app-additional>
+        <app-extra [feedBackResponse]="feedBackResponse"></app-extra>
     </section>
 </div>

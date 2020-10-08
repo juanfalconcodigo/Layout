@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-message',
@@ -6,28 +6,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./message.component.scss']
 })
 export class MessageComponent implements OnInit {
+ @Input('content') content:any[];
+ @Input('totalPages') totalPages:number;
+ @Input('totalElements') totalElements:number;
+ @Output('feedSelect') feedSelect:EventEmitter<number>; 
 
-  messages:any[]=[]
-  constructor() { }
+  constructor() {
+    this.feedSelect=new EventEmitter();
+   }
 
   ngOnInit(): void {
-    this.messages=[
-      {
-        userComment:'testing1'
-      },
-      {
-        userComment:'testing2'
-      },
-      {
-        userComment:'testing3'
-      },
-      {
-        userComment:'testing4'
-      },
-      {
-        userComment:'testing5'
-      }
-    ]
+   
+    console.log(this.content)
   }
+
+  messageSelected(id:number){
+    this.feedSelect.emit(id);
+  }
+
+  
 
 }

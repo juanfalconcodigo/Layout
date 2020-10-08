@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-additional',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./additional.component.scss']
 })
 export class AdditionalComponent implements OnInit {
-
+  @Input('feedBackResponse') feedBackResponse:any=null;
   constructor() { }
 
   ngOnInit(): void {

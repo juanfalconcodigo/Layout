@@ -17,15 +17,15 @@
             <span>Settings</span>
         </div>
     </div>
-    <div class="inbox-content-container__main">
-        <h2>Testing</h2>
+    <div class="inbox-content-container__main" *ngIf="feedBackResponse">
+        <h2>{{feedBackResponse.userComment}}</h2>
         <div>
             <span>Zoom</span>
             <span>Dowload</span>
         </div>
     </div>
 
-    <div class="inbox-content-container__image">
-        <img src="https://www.fundacionaquae.org/wp-content/uploads/2020/03/causas-de-la-contaminacion-ambiental3.jpg" alt="">
+    <div class="inbox-content-container__image" *ngIf="feedBackResponse">
+        <img [src]="feedBackResponse.fakeImage" alt="Image Feed">
     </div>
 </section>
