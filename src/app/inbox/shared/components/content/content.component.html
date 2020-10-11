@@ -1,15 +1,18 @@
 <section class="inbox-content-container">
     <div class="inbox-content-container__header">
         <div class="inbox-content-container__header__select">
-            <label for="select">Filter By: </label>
-            <select name="" id="select">
-                <option value="FeedBackId">FeedBackId</option>
-                <option value="Filer2">Filer2</option>
-                <option value="Filer2">Filer3</option>
-            </select>
+            <form [formGroup]="formaSelect">
+                <label for="select">Filter By: </label>
+                <select formControlName="option" id="select">
+                    <option [ngValue]="item" *ngFor="let item of options">{{item.name}}</option>
+                </select>
+            </form>
         </div>
         <div class="inbox-content-container__header__search">
-            <input type="text" />
+            <form [formGroup]="forma" (ngSubmit)="onSubmit()">
+                <input type="text" formControlName="value" />
+                <button [disabled]="forma.invalid">🍳</button>
+            </form>
         </div>
         <div class="inbox-content-container__header__actions">
             <span>Reports</span>
@@ -21,7 +24,7 @@
         <h2>{{feedBackResponse.userComment}}</h2>
         <div>
             <span>Zoom</span>
-            <span>Dowload</span>
+            <span>Download</span>
         </div>
     </div>
 

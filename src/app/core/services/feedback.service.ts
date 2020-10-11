@@ -1,18 +1,19 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { from } from 'rxjs';
-import { filter, map, pluck, tap } from 'rxjs/operators';
-import {DATA_FEEDS, FeedBackResponseFake} from '../utils/responseDataFake';
+import { shareReplay } from 'rxjs/operators';
+import {environment} from 'src/environments/environment';
+
 @Injectable()
 export class FeedbackService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
-  getFeedBack(){
-    return FeedBackResponseFake;
+  getFeedBack(page:number){
+    return this.http.get(`${environment.backendUrl}?page=${page}`).pipe(shareReplay());
   }
 
   getFeedBackById(id:number){
-    return from(FeedBackResponseFake.content).pipe(filter((data,i)=>data['feedbackItemId']===id));
+    return this.http.get(`${environment.backendUrl}/${id}`).pipe(shareReplay());
   }
 
 

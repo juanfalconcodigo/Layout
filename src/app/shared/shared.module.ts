@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { RouterModule } from '@angular/router';
 import {BreadcrumbModule} from 'angular-crumbs';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,9 @@ import {BreadcrumbModule} from 'angular-crumbs';
   exports: [
     RouterModule,
     BreadcrumbModule,
-    HeaderComponent
+    HeaderComponent,
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class SharedModule { }

@@ -3,7 +3,7 @@
         <div>
             ✉ Mensajes({{totalElements}})
         </div>
-        <div>1 de {{totalPages}} > </div>
+        <div><span (click)="lastPage()"> < </span>{{number+1}} de {{totalPages}} <span (click)="nextPage()">></span> </div>
     </div>
     <div class="inbox-message-container__messages">
         <ul>

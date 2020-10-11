@@ -1,7 +1,9 @@
 <div class="inbox-extra-container" *ngIf="feedBackResponse?.extraParams.length>0">
     <h3>Extra Parameters</h3>
     <div>
-        <p>Email: dhvdmw@gmail.com</p>
+        <p *ngFor="let item of feedBackResponse.extraParams">
+            {{item.key}} : {{item.value}}
+        </p>
 
     </div>
 </div>

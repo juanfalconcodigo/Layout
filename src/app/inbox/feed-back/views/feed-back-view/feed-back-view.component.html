@@ -1,9 +1,9 @@
 <div class="feed-back">
-    <section class="feed-back__messages">
-        <app-message [content]="feedBackResponseList.content" [totalElements]="feedBackResponseList.totalElements" [totalPages]="feedBackResponseList.totalPages" (feedSelect)="feedSelect($event)"></app-message>
+    <section class="feed-back__messages" *ngIf="feedBackResponseList">
+        <app-message [content]="feedBackResponseList.content" [totalElements]="feedBackResponseList.totalElements" [totalPages]="feedBackResponseList.totalPages" (feedSelect)="feedSelect($event)" [number]="feedBackResponseList.number" (newPage)="newFeedBackResponseList($event)"></app-message>
     </section>
     <section class="feed-back__report">
-        <app-content [feedBackResponse]="feedBackResponse"></app-content>
+        <app-content [feedBackResponse]="feedBackResponse" (emitValue)="feedSelect($event)"></app-content>
     </section>
     <section class="feed-back__additionals">
         <app-additional [feedBackResponse]="feedBackResponse"></app-additional>
