@@ -11,7 +11,7 @@ export class FeedBackViewComponent implements OnInit, OnDestroy {
   feedBackResponseSubscription: Subscription = null;
   feedBackResponseList: any = null;
   feedBackResponse: any = null;
-  hack:any=null;
+  hack: any = null;
   constructor(public _feedbackService: FeedbackService) { }
 
 
@@ -24,24 +24,26 @@ export class FeedBackViewComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.feedBackResponseListSubscription.unsubscribe();
-    if(this.feedBackResponseSubscription)this.feedBackResponseSubscription.unsubscribe();
+    if (this.feedBackResponseSubscription) this.feedBackResponseSubscription.unsubscribe();
   }
 
   feedSelect(event: number) {
-  console.log(this.hack,event)
-   if(this.hack==event){
-     return;
-   }
-   this.feedBackResponseSubscription = this._feedbackService.getFeedBackById(event).subscribe((resp) => {
-    this.feedBackResponse = resp[0];
-    console.log(this.feedBackResponse);
-    this.hack=event;
-  });
+    console.log(this.hack, event)
+    if (this.hack == event) {
+      return;
+    }
+    //you can wrap in a setTimeOut if you want 800ms
+    this.feedBackResponseSubscription = this._feedbackService.getFeedBackById(event).subscribe((resp) => {
+      this.feedBackResponse = resp[0];
+      console.log(this.feedBackResponse);
+      this.hack = event;
+    });
+
   }
 
   newFeedBackResponseList(page: number) {
     this.feedBackResponseListSubscription = this._feedbackService.getFeedBack(page).subscribe((resp) => {
-      this.feedBackResponseList=resp;
+      this.feedBackResponseList = resp;
       console.log(this.feedBackResponseList)
     });
   }
