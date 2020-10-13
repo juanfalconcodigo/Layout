@@ -9,11 +9,11 @@ export class FeedbackService {
   constructor(private http:HttpClient) { }
 
   getFeedBack(page:number){
-    return this.http.get(`${environment.backendUrl}?page=${page}`).pipe(shareReplay());
+    return this.http.get(`${environment.backendUrl}/feedbacks/?page=${page}`).pipe(shareReplay());
   }
 
   getFeedBackById(id:number){
-    return this.http.get(`${environment.backendUrl}/${id}`).pipe(shareReplay());
+    return this.http.get(`${environment.backendUrl}/feedbacks/${id}`).pipe(shareReplay());
   }
 
 

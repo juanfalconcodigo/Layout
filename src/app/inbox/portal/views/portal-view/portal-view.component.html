@@ -1,11 +1,11 @@
-<div class="feed-back">
-    <section class="feed-back__messages" *ngIf="feedBackResponseList">
+<div class="portal">
+    <section class="portal__messages" *ngIf="feedBackResponseList">
         <app-message [content]="feedBackResponseList.content" [totalElements]="feedBackResponseList.totalElements" [totalPages]="feedBackResponseList.totalPages" (feedSelect)="feedSelect($event)" [number]="feedBackResponseList.number" (newPage)="newFeedBackResponseList($event)"></app-message>
     </section>
-    <section class="feed-back__report">
+    <section class="portal__report">
         <app-content [feedBackResponse]="feedBackResponse" (emitValue)="feedSelect($event)"></app-content>
     </section>
-    <section class="feed-back__additionals">
+    <section class="portal__additionals">
         <app-additional [feedBackResponse]="feedBackResponse"></app-additional>
         <app-extra [feedBackResponse]="feedBackResponse"></app-extra>
     </section>

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FeedBackViewComponent } from './feed-back-view.component';
+import { PortalViewComponent } from './portal-view.component';
 
-describe('FeedBackViewComponent', () => {
-  let component: FeedBackViewComponent;
-  let fixture: ComponentFixture<FeedBackViewComponent>;
+describe('PortalViewComponent', () => {
+  let component: PortalViewComponent;
+  let fixture: ComponentFixture<PortalViewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FeedBackViewComponent ]
+      declarations: [ PortalViewComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FeedBackViewComponent);
+    fixture = TestBed.createComponent(PortalViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

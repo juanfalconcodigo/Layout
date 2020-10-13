@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { InboxComponent } from './inbox.component';
+import { PortalGuard } from '../core/guards/portal.guard';
 
 const routes: Routes = [
   {
@@ -16,17 +17,21 @@ const routes: Routes = [
       },
       {
         path: 'FEEDBACK',
-        loadChildren: () => import('src/app/inbox/feed-back/feed-back.module').then((m) => m.FeedBackModule),
+        loadChildren: () => import('src/app/inbox/portal/portal.module').then((m) => m.PortalModule),
         data: {
-          breadcrumb: 'FEEDBACK'
-        }
+          breadcrumb: 'FEEDBACK',
+          access: ['FEEDBACK']
+        },
+        canActivate:[PortalGuard]
       },
       {
         path: 'EUROPA_WEB',
-        loadChildren: () => import('src/app/inbox/feed-back/feed-back.module').then((m) => m.FeedBackModule),
+        loadChildren: () => import('src/app/inbox/portal/portal.module').then((m) => m.PortalModule),
         data: {
-          breadcrumb: 'EUROPA_WEB'
-        }
+          breadcrumb: 'EUROPA_WEB',
+          access: ['EUROPA_WEB']
+        },
+        canActivate:[PortalGuard]
       }
 
     ]

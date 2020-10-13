@@ -1,6 +1,6 @@
-<section class="menu-inbox">
-    <div class="menu-inbox__box" *ngFor="let item of  this.dataFake.portals">
-        <div>{{item.name}}</div>
-        <a [routerLink]="[item.name]">See More ></a>
+<section class="menu-inbox" *ngIf="this.portalInfo">
+    <div class="menu-inbox__box" *ngFor="let portal of  this.portalInfo.portals">
+        <div>{{portal.name}}</div>
+        <a [routerLink]="[portal.name]">See More ></a>
     </div>
 </section>

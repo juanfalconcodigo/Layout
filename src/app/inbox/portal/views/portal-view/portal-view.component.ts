@@ -1,19 +1,19 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { FeedbackService } from '../../../../core/services/feedback.service';
 @Component({
-  selector: 'app-feed-back-view',
-  templateUrl: './feed-back-view.component.html',
-  styleUrls: ['./feed-back-view.component.scss']
+  selector: 'app-portal-view',
+  templateUrl: './portal-view.component.html',
+  styleUrls: ['./portal-view.component.scss']
 })
-export class FeedBackViewComponent implements OnInit, OnDestroy {
+export class PortalViewComponent implements OnInit, OnDestroy {
   feedBackResponseListSubscription: Subscription = null;
   feedBackResponseSubscription: Subscription = null;
   feedBackResponseList: any = null;
   feedBackResponse: any = null;
   hack: any = null;
-  constructor(public _feedbackService: FeedbackService) { }
 
+  constructor(public _feedbackService: FeedbackService) { }
 
   ngOnInit(): void {
     this.feedBackResponseListSubscription = this._feedbackService.getFeedBack(0).subscribe((resp: any) => {
