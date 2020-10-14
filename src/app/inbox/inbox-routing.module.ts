@@ -22,7 +22,8 @@ const routes: Routes = [
           breadcrumb: 'FEEDBACK',
           access: ['FEEDBACK']
         },
-        canActivate:[PortalGuard]
+        canActivate:[PortalGuard],
+        canLoad:[PortalGuard]
       },
       {
         path: 'EUROPA_WEB',
@@ -31,7 +32,8 @@ const routes: Routes = [
           breadcrumb: 'EUROPA_WEB',
           access: ['EUROPA_WEB']
         },
-        canActivate:[PortalGuard]
+        canActivate:[PortalGuard],
+        canLoad:[PortalGuard]
       }
 
     ]
