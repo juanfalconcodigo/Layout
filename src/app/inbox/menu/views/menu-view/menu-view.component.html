@@ -1,6 +1,6 @@
 <section class="menu-inbox" *ngIf="this.portalInfo">
     <div class="menu-inbox__box" *ngFor="let portal of  this.portalInfo.portals">
         <div>{{portal.name}}</div>
-        <a [routerLink]="[portal.name]">See More ></a>
+        <a [routerLink]="['/inbox/PORTAL',portal.name]">See More ></a>
     </div>
 </section>

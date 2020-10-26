@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, CanLoad, Route, UrlSegment, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { take } from 'rxjs/operators';
+import { CanActivate, CanLoad, Route, UrlSegment, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router, ActivatedRoute } from '@angular/router';
+import { Observable, of } from 'rxjs';
+import { catchError, map, pluck, take } from 'rxjs/operators';
 import { PortalService } from '../services/portal.service';
 
 @Injectable()
@@ -17,27 +17,33 @@ export class PortalGuard implements CanActivate, CanLoad {
   canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.validateAuthorization(route);
+      console.log(route);
+      const access = segments[1].path;
+      console.log(access);
+      return true;
+     /*  return this.validateAuthorization(route); */
   }
 
-  validateAuthorization(route: Route | ActivatedRouteSnapshot): any {
-    const access = route.data['access'] as Array<string>;
-    if (this._portalService.getUserPortal()) {
-      const newArray = this._portalService.getUserPortal().map((e) => {
+  validateAuthorization(route: ActivatedRouteSnapshot | Route | any): Observable<boolean> {
+    const access = route.params['param'];
+    console.log(access);
+    return this._portalService.getPortal().pipe(take(1), pluck('portals'),map((resp:any)=> {
+      const newArray = resp.map((e) => {
         return e.name;
-      })
-      if (newArray.includes(access[0])) {
+      });
+      console.log(newArray, access)
+      if (newArray.includes(access)) {
         console.log('Success Access');
         return true;
+      } else {
+        console.log('Not Access');
+        this.router.navigate(['inbox']);
+        return false;
       }
-      console.log('Not Access');
-      return false;
-    } else {
-      console.log('Not Access');
-      this.router.navigate(['inbox']);
-      return false;
-    }
-
+    }),catchError((err) => {
+      this.router.navigate(['/login']);
+      return of(false);
+    }));
   }
 
 

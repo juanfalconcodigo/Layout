@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path:'home',
+    path:'',
     loadChildren:()=>import('./home/home.module').then((m)=>m.HomeModule)
   },
   {
@@ -15,9 +15,14 @@ const routes: Routes = [
     loadChildren:()=>import('./inbox/inbox.module').then((m)=>m.InboxModule)
   },
   {
+    path:'',
+    pathMatch:'full',
+    redirectTo:''
+  },
+  {
     path:'**',
     pathMatch:'full',
-    redirectTo:'home'
+    redirectTo:''
   }
 ];
 

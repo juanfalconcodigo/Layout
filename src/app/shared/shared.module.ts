@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { RouterModule } from '@angular/router';
-import {BreadcrumbModule} from 'angular-crumbs';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -15,7 +14,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   exports: [
     RouterModule,
-    BreadcrumbModule,
     HeaderComponent,
     FormsModule,
     ReactiveFormsModule,

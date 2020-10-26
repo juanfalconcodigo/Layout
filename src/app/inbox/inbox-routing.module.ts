@@ -9,31 +9,19 @@ const routes: Routes = [
     component: InboxComponent,
     children: [
       {
+        path: 'All',
+        loadChildren: () => import('src/app/inbox/menu/menu.module').then((m) => m.MenuModule)
+      },
+      {
+        path: 'PORTAL/:param',
+        loadChildren: () => import('src/app/inbox/portal/portal.module').then((m) => m.PortalModule),
+        canActivate:[PortalGuard],
+        canLoad:[PortalGuard]
+      },
+      {
         path: '',
-        loadChildren: () => import('src/app/inbox/menu/menu.module').then((m) => m.MenuModule),
-        data: {
-          breadcrumb: ''
-        }
-      },
-      {
-        path: 'FEEDBACK',
-        loadChildren: () => import('src/app/inbox/portal/portal.module').then((m) => m.PortalModule),
-        data: {
-          breadcrumb: 'FEEDBACK',
-          access: ['FEEDBACK']
-        },
-        canActivate:[PortalGuard],
-        canLoad:[PortalGuard]
-      },
-      {
-        path: 'EUROPA_WEB',
-        loadChildren: () => import('src/app/inbox/portal/portal.module').then((m) => m.PortalModule),
-        data: {
-          breadcrumb: 'EUROPA_WEB',
-          access: ['EUROPA_WEB']
-        },
-        canActivate:[PortalGuard],
-        canLoad:[PortalGuard]
+        pathMatch: 'full',
+        redirectTo: 'All'
       }
 
     ]

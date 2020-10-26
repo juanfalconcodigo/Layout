@@ -6,9 +6,10 @@ import { MessageComponent } from './components/message/message.component';
 import { ContentComponent } from './components/content/content.component';
 import { AdditionalComponent } from './components/additional/additional.component';
 import { ExtraComponent } from './components/extra/extra.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
-  declarations: [BreadcrumbComponent, MessageComponent, ContentComponent, AdditionalComponent, ExtraComponent],
+  declarations: [BreadcrumbComponent, MessageComponent, ContentComponent, AdditionalComponent, ExtraComponent, LoadingComponent],
   imports: [
     CommonModule,
     AppSharedModule
@@ -18,7 +19,8 @@ import { ExtraComponent } from './components/extra/extra.component';
     MessageComponent,
     ContentComponent,
     AdditionalComponent,
-    ExtraComponent
+    ExtraComponent,
+    LoadingComponent
   ]
 })
 export class SharedModule { }

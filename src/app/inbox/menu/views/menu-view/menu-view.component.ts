@@ -15,7 +15,6 @@ export class MenuViewComponent implements OnInit,OnDestroy {
   ngOnInit(): void {
     this.portalInfoSubscription = this._portalService.getPortal().subscribe((resp) => {
       this.portalInfo = resp;
-      this._portalService.portals=resp['portals']
     },
       (err) => console.log(err));
   }
