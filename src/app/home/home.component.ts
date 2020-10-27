@@ -60,4 +60,8 @@ export class HomeComponent implements OnInit {
       },1000)
   }
 
+  meClick(){
+    console.log('click')
+  }
+
 }

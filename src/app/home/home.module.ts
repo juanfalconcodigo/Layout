@@ -7,6 +7,8 @@ import { HomeComponent } from './home.component';
 import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 //ngx-switch
 import { UiSwitchModule } from 'ngx-ui-switch';
+//shared root
+import { SharedModule as AppSharedModule } from 'src/app/shared/shared.module';
 @NgModule({
   declarations: [HomeComponent],
   imports: [
@@ -14,6 +16,7 @@ import { UiSwitchModule } from 'ngx-ui-switch';
     HomeRoutingModule,
     SnotifyModule,
     UiSwitchModule,
+    AppSharedModule
   ],
   providers: [
     { provide: 'SnotifyToastConfig', useValue: ToastDefaults },

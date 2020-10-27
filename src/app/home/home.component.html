@@ -1,5 +1,16 @@
 <p>home works!</p>
 <ng-snotify></ng-snotify>
 <p>
-    <ui-switch [(ngModel)]="enable" (change)="onChange($event)"></ui-switch>
+    <ui-switch [(ngModel)]="enable" (change)="onChange($event)" size="small"></ui-switch>
 </p>
+
+<div class="col text-right">
+    <div ngbDropdown class="d-inline-block">
+        <span id="dropdownBasic2" ngbDropdownToggle>Edit</span>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+            <button ngbDropdownItem (click)="meClick()">Action - 1</button>
+            <button ngbDropdownItem>Another Action</button>
+            <button ngbDropdownItem>Something else is here</button>
+        </div>
+    </div>
+</div>
