@@ -14,8 +14,8 @@ import { GuardModule } from './guards/guard.module';
     ServiceModule,
     GuardModule
   ],
-  exports:[
+  exports: [
     AppSharedModule
-  ]
+  ],
 })
 export class CoreModule { }

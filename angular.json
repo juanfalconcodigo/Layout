@@ -28,7 +28,9 @@
                             "src/assets"
                         ],
                         "styles": [
-                            "src/styles.scss"
+                            "./node_modules/ng-snotify/styles/material.scss",
+                            "src/styles.scss",
+                            "./node_modules/ngx-ui-switch/ui-switch.component.css"
                         ],
                         "scripts": []
                     },
