@@ -3,8 +3,11 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 /* import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; */
 import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
+//imageslider
+import { NgImageSliderModule } from 'ng-image-slider';
 @NgModule({
   declarations: [
     HeaderComponent
@@ -18,8 +21,8 @@ import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
     HeaderComponent,
     FormsModule,
     ReactiveFormsModule,
-    NgbDropdownModule
-    /* NgbModule, */
+    NgbDropdownModule,
+    NgImageSliderModule
   ]
 })
 export class SharedModule { }

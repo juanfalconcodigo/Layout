@@ -1,4 +1,3 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { SnotifyService, SnotifyPosition, SnotifyToastConfig } from 'ng-snotify';
 @Component({
@@ -21,7 +20,12 @@ export class HomeComponent implements OnInit {
   pauseHover = true;
   titleMaxLength = 15;
   bodyMaxLength = 80;
-  enable:boolean=true;
+  enable: boolean = true;
+  //
+  imageObject: Array<object> = [];
+  //
+  visible: boolean = false;
+
   constructor(private snotifyService: SnotifyService) { }
   getConfig(): SnotifyToastConfig {
     this.snotifyService.setDefaults({
@@ -45,6 +49,16 @@ export class HomeComponent implements OnInit {
     };
   }
   ngOnInit(): void {
+    this.imageObject = [{
+      image: 'https://www.ambientum.com/wp-content/uploads/2019/09/luz-naturaleza.jpg',
+      thumbImage: 'https://www.ambientum.com/wp-content/uploads/2019/09/luz-naturaleza.jpg',
+      /*  alt: 'alt of image',
+       title: 'title of image' */
+    }/* , {
+      image: 'https://valor.pe/wp-content/uploads/2020/04/naturaleza.jpg', // Support base64 image
+      thumbImage: 'https://valor.pe/wp-content/uploads/2020/04/naturaleza.jpg', // Support base64 image
+    } */
+    ];
 
   }
 
@@ -52,16 +66,25 @@ export class HomeComponent implements OnInit {
     this.snotifyService.success(this.title, this.body, this.getConfig());
   }
 
-  onChange(e){
-      console.log('e',e);
-      console.log('ngmodel',this.enable)
-      setTimeout(()=>{
+  onChange(e) {
+    console.log('e', e);
+    console.log('ngmodel', this.enable)
+    setTimeout(() => {
       this.toast();
-      },1000)
+    }, 1000)
   }
 
-  meClick(){
+  meClick() {
     console.log('click')
+  }
+
+
+  showImage() {
+    this.visible = true;
+  }
+
+  sendVisible(){
+    this.visible = false;
   }
 
 }
