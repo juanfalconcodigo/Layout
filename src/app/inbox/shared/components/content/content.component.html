@@ -17,7 +17,7 @@
         <div class="inbox-content-container__header__actions">
             <span>Reports</span>
             <span>Exports</span>
-            <span>Settings</span>
+            <span [routerLink]="['/feedback-admin/settings',feedBackResponse?.portal.portalName,feedBackResponse?.portal.portalId]">Settings</span>
         </div>
     </div>
     <div class="inbox-content-container__main" *ngIf="feedBackResponse" id="id-main">
@@ -25,7 +25,8 @@
         <div>
             <span>Zoom</span>
             <span>
-                <a id="download" download="myImage.jpg" href="" (click)="download_img(feedBackResponse.fakeImage)">Download to myImage.jpg</a>
+                <a id="download" download="myImage.jpg" href=""
+                    (click)="download_img(feedBackResponse.fakeImage)">Download to myImage.jpg</a>
             </span>
         </div>
     </div>
