@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 /* import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; */
 import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
 //imageslider
 import { NgImageSliderModule } from 'ng-image-slider';
 @NgModule({
@@ -22,6 +23,7 @@ import { NgImageSliderModule } from 'ng-image-slider';
     FormsModule,
     ReactiveFormsModule,
     NgbDropdownModule,
+    NgbModalModule,
     NgImageSliderModule
   ]
 })

@@ -30,3 +30,37 @@
         <button class="close" (click)="sendVisible()"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
     </div>
 </div>
+
+
+
+<ul>
+    <li *ngFor="let user of users" (click)="open(content,user)">
+        {{user.name}}
+    </li>
+</ul>
+
+
+
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>username : {{user.name}}</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancel</button>
+        <button type="button" class="btn btn-outline-dark" (click)="postAddUser(modal,user)">Save</button>
+    </div>
+</ng-template>
+
+<!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content,item)">Launch demo modal</button> -->
+
+<hr>
+
+<pre>{{ closeResult }}</pre>

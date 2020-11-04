@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { SnotifyService, SnotifyPosition, SnotifyToastConfig } from 'ng-snotify';
 @Component({
   selector: 'app-home',
@@ -25,8 +26,58 @@ export class HomeComponent implements OnInit {
   imageObject: Array<object> = [];
   //
   visible: boolean = false;
+  //fake array
+  users: any[] = [
+    {
+      id: 1,
+      name: "Leanne Graham",
+      username: "Bret",
+      email: "Sincere@april.biz",
+      address: {
+        street: "Kulas Light",
+        suite: "Apt. 556",
+        city: "Gwenborough",
+        zipcode: "92998-3874",
+        geo: {
+          lat: "-37.3159",
+          lng: "81.1496"
+        }
+      },
+      phone: "1-770-736-8031 x56442",
+      website: "hildegard.org",
+      company: {
+        name: "Romaguera-Crona",
+        catchPhrase: "Multi-layered client-server neural-net",
+        bs: "harness real-time e-markets"
+      }
+    },
+    {
+      id: 2,
+      name: "Ervin Howell",
+      username: "Antonette",
+      email: "Shanna@melissa.tv",
+      address: {
+        street: "Victor Plains",
+        suite: "Suite 879",
+        city: "Wisokyburgh",
+        zipcode: "90566-7771",
+        geo: {
+          lat: "-43.9509",
+          lng: "-34.4618"
+        }
+      },
+      phone: "010-692-6593 x09125",
+      website: "anastasia.net",
+      company: {
+        name: "Deckow-Crist",
+        catchPhrase: "Proactive didactic contingency",
+        bs: "synergize scalable supply-chains"
+      }
+    },];
+  closeResult = '';
+  user: any = null;
 
-  constructor(private snotifyService: SnotifyService) { }
+  constructor(private snotifyService: SnotifyService, private modalService: NgbModal) { }
   getConfig(): SnotifyToastConfig {
     this.snotifyService.setDefaults({
       global: {
@@ -83,8 +134,34 @@ export class HomeComponent implements OnInit {
     this.visible = true;
   }
 
-  sendVisible(){
+  sendVisible() {
     this.visible = false;
+  }
+
+  ////modal
+  open(content, item) {
+    this.user = item;
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
+
+  //click modal
+  postAddUser(modal: any, user) {
+    console.log(user)
+    modal.close('Save click');
   }
 
 }
