@@ -4,7 +4,8 @@ import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { AppState } from 'src/app/app.reducer';
 import { FeedbackService } from '../../../../core/services/feedback.service';
-import { setBreadCrumb } from '../../../store/inbox.actions';
+import { setBreadCrumb, setSearch } from '../../../store/inbox.actions';
+import { pluck } from 'rxjs/operators';
 
 @Component({
   selector: 'app-portal-view',
@@ -18,20 +19,44 @@ export class PortalViewComponent implements OnInit, OnDestroy {
   feedBackResponse: any = null;
   hack: any = null;
   show: boolean = true;
+  //refesh
+  refresh: any = null;
 
-  constructor(public _feedbackService: FeedbackService,private store:Store<AppState>,private route:ActivatedRoute) { }
+  constructor(public _feedbackService: FeedbackService, private store: Store<AppState>, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.show = true;
     this.feedBackResponseListSubscription = this._feedbackService.getFeedBack(0).subscribe((resp: any) => {
       this.feedBackResponseList = resp;
+      this.feedBackResponse=resp.content[0];
       if (this.feedBackResponseList) {
         this.show = false
       }
+      //change refecth
+      this.store.dispatch(setSearch({ search: 'getFeedBack-0' }));
     });
 
-    this.route.params.subscribe((resp)=>{
-      this.store.dispatch(setBreadCrumb({breadcrumb:resp.param}));
+    this.route.params.subscribe((resp) => {
+      this.store.dispatch(setBreadCrumb({ breadcrumb: resp.param }));
+    });
+
+
+    this.store.select('portal').pipe(pluck('refresh')).subscribe((resp) => {
+      
+      if (resp) {
+        const [type, param] = resp.split('-');
+        console.log('refresh portal', type, param);
+        switch (type) {
+          case 'newFeedBackResponseList':
+            this.show=true;
+            setTimeout(()=>{
+            this.newFeedBackResponseList(param);
+            this.show=false;
+            },1000)
+            return;
+          default: this.feedBackResponse;
+        }
+      }
     })
 
 
@@ -40,7 +65,7 @@ export class PortalViewComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.feedBackResponseListSubscription.unsubscribe();
     if (this.feedBackResponseSubscription) this.feedBackResponseSubscription.unsubscribe();
-    this.store.dispatch(setBreadCrumb({breadcrumb:''}));
+    this.store.dispatch(setBreadCrumb({ breadcrumb: '' }));
   }
 
   feedSelect(event: number) {
@@ -53,15 +78,24 @@ export class PortalViewComponent implements OnInit, OnDestroy {
       this.feedBackResponse = resp[0];
       console.log(this.feedBackResponse);
       this.hack = event;
+      //change refecth
+      this.store.dispatch(setSearch({ search: `getFeedBackById-${event}` }));
     });
 
   }
 
-  newFeedBackResponseList(page: number) {
+  newFeedBackResponseList(page: any) {
     this.feedBackResponseListSubscription = this._feedbackService.getFeedBack(page).subscribe((resp) => {
       this.feedBackResponseList = resp;
       console.log(this.feedBackResponseList);
+      //change refecth
+      this.store.dispatch(setSearch({ search: `newFeedBackResponseList-${page}` }));
     });
+  }
+
+
+  changeRefresh() {
+
   }
 
 }

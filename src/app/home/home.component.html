@@ -64,3 +64,11 @@
 <hr>
 
 <pre>{{ closeResult }}</pre>
+
+<!-- form -->
+
+<form [formGroup]="forma" (ngSubmit)="onSubmit()">
+    <input type="text" formControlName="dni" />
+
+    <button>Consultar</button>
+</form>

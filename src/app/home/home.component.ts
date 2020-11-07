@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { SnotifyService, SnotifyPosition, SnotifyToastConfig } from 'ng-snotify';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -77,6 +79,8 @@ export class HomeComponent implements OnInit {
   closeResult = '';
   user: any = null;
 
+  forma:FormGroup=null;
+
   constructor(private snotifyService: SnotifyService, private modalService: NgbModal) { }
   getConfig(): SnotifyToastConfig {
     this.snotifyService.setDefaults({
@@ -110,6 +114,10 @@ export class HomeComponent implements OnInit {
       thumbImage: 'https://valor.pe/wp-content/uploads/2020/04/naturaleza.jpg', // Support base64 image
     } */
     ];
+
+    this.forma=new FormGroup({
+      'dni':new FormControl('',[Validators.required])
+    });
 
   }
 
@@ -164,4 +172,25 @@ export class HomeComponent implements OnInit {
     modal.close('Save click');
   }
 
+  //postDni
+  onSubmit(){
+    if(this.forma.invalid){
+      return;
+    }
+    
+    const {value:{dni}}=this.forma;
+    console.log(dni);
+    fetch(`https://dniruc.apisperu.com/api/v1/dni/${dni}?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InBhb2xvcGFvbG9jY2NAZ21haWwuY29tIn0.tnyGmt98befjOCSqstiQQu5BTElwmgtI0kauPEOTYA8`).then((data)=>data.json()).then((resp)=>{
+      console.log(resp);
+      this.forma.setValue({
+        'dni':''
+      })
+    }).catch((err)=>{
+      const error:any=new Error();
+      error.message='server internal error';
+      error.status=500;
+      throw error;
+    });
+
+  }
 }
