@@ -3,6 +3,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { SnotifyService, SnotifyPosition, SnotifyToastConfig } from 'ng-snotify';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -79,7 +80,25 @@ export class HomeComponent implements OnInit {
   closeResult = '';
   user: any = null;
 
-  forma:FormGroup=null;
+  forma: FormGroup = null;
+  content: any;
+  //code mirror
+  obj;
+  codeMirrorOptions: any = {
+    theme: "idea",
+    mode: "text/html",
+    lineNumbers: true,
+    lineWrapping: true,
+    foldGutter: true,
+    gutters: [
+      "CodeMirror-linenumbers",
+      "CodeMirror-foldgutter",
+      "CodeMirror-lint-markers"
+    ],
+    autoCloseBrackets: true,
+    matchBrackets: true,
+    lint: true
+  };
 
   constructor(private snotifyService: SnotifyService, private modalService: NgbModal) { }
   getConfig(): SnotifyToastConfig {
@@ -115,10 +134,27 @@ export class HomeComponent implements OnInit {
     } */
     ];
 
-    this.forma=new FormGroup({
-      'dni':new FormControl('',[Validators.required])
+    this.forma = new FormGroup({
+      'dni': new FormControl('', [Validators.required])
     });
 
+
+    this.obj = JSON.stringify(
+      {
+        $schema: "http://json-schema.org/draft-07/schema#",
+        type: "object",
+        title: "Object",
+        additionalProperties: false,
+        properties: {
+          string: {
+            type: "string",
+            title: "String"
+          }
+        }
+      },
+      null,
+      " "
+    );
   }
 
   toast() {
@@ -173,24 +209,38 @@ export class HomeComponent implements OnInit {
   }
 
   //postDni
-  onSubmit(){
-    if(this.forma.invalid){
+  onSubmit() {
+    if (this.forma.invalid) {
       return;
     }
-    
-    const {value:{dni}}=this.forma;
+
+    const { value: { dni } } = this.forma;
     console.log(dni);
-    fetch(`https://dniruc.apisperu.com/api/v1/dni/${dni}?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InBhb2xvcGFvbG9jY2NAZ21haWwuY29tIn0.tnyGmt98befjOCSqstiQQu5BTElwmgtI0kauPEOTYA8`).then((data)=>data.json()).then((resp)=>{
+    fetch(`https://dniruc.apisperu.com/api/v1/dni/${dni}?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InBhb2xvcGFvbG9jY2NAZ21haWwuY29tIn0.tnyGmt98befjOCSqstiQQu5BTElwmgtI0kauPEOTYA8`).then((data) => data.json()).then((resp) => {
       console.log(resp);
       this.forma.setValue({
-        'dni':''
+        'dni': ''
       })
-    }).catch((err)=>{
-      const error:any=new Error();
-      error.message='server internal error';
-      error.status=500;
+    }).catch((err) => {
+      const error: any = new Error();
+      error.message = 'server internal error';
+      error.status = 500;
       throw error;
     });
 
   }
+
+
+  //chages code mirror
+  setEditorContent(event) {
+    // console.log(event, typeof event);
+    const preview:HTMLElement=document.getElementById('preview');
+    preview.innerHTML=this.obj;
+  }
+
+  save() {
+    
+    console.log(this.obj);
+  }
+
 }

@@ -72,3 +72,17 @@
 
     <button>Consultar</button>
 </form>
+
+
+
+<!-- Code mirror transform template to html -->
+
+<ngx-codemirror #codemirror [options]="codeMirrorOptions" [(ngModel)]="obj" (ngModelChange)="setEditorContent($event)">
+</ngx-codemirror>
+
+<button (click)="save()">Send</button>
+
+
+<div id="preview">
+
+</div>

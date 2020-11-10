@@ -9,6 +9,8 @@ import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
 //imageslider
 import { NgImageSliderModule } from 'ng-image-slider';
+//code mirror
+import { CodemirrorModule } from '@ctrl/ngx-codemirror';
 @NgModule({
   declarations: [
     HeaderComponent
@@ -24,7 +26,8 @@ import { NgImageSliderModule } from 'ng-image-slider';
     ReactiveFormsModule,
     NgbDropdownModule,
     NgbModalModule,
-    NgImageSliderModule
+    NgImageSliderModule,
+    CodemirrorModule
   ]
 })
 export class SharedModule { }

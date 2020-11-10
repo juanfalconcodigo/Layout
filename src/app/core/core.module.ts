@@ -7,7 +7,6 @@ import { GuardModule } from './guards/guard.module';
 import { InterceptorInterceptor as Interceptor } from './interceptors/interceptor.interceptor';
 
 
-
 @NgModule({
   declarations: [],
   imports: [
