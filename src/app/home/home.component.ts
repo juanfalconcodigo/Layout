@@ -100,6 +100,8 @@ export class HomeComponent implements OnInit {
     lint: true
   };
 
+  newForma: FormGroup;
+
   constructor(private snotifyService: SnotifyService, private modalService: NgbModal) { }
   getConfig(): SnotifyToastConfig {
     this.snotifyService.setDefaults({
@@ -137,6 +139,23 @@ export class HomeComponent implements OnInit {
     this.forma = new FormGroup({
       'dni': new FormControl('', [Validators.required])
     });
+
+    this.newForma = new FormGroup({
+      'one': new FormControl(false),
+      'two': new FormControl(false),
+      'three': new FormControl(false),
+    });
+
+    this.newForma.get('one').valueChanges.subscribe((resp) => {
+      console.log('one', resp);
+    });
+    this.newForma.get('two').valueChanges.subscribe((resp) => {
+      console.log('two', resp);
+    });
+    this.newForma.get('three').valueChanges.subscribe((resp) => {
+      console.log('three', resp);
+    });
+
 
 
     this.obj = JSON.stringify(
@@ -234,12 +253,12 @@ export class HomeComponent implements OnInit {
   //chages code mirror
   setEditorContent(event) {
     // console.log(event, typeof event);
-    const preview:HTMLElement=document.getElementById('preview');
-    preview.innerHTML=this.obj;
+    const preview: HTMLElement = document.getElementById('preview');
+    preview.innerHTML = this.obj;
   }
 
   save() {
-    
+
     console.log(this.obj);
   }
 

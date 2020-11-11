@@ -86,3 +86,20 @@
 <div id="preview">
 
 </div>
+
+<hr>
+
+<form [formGroup]="newForma">
+    <div>
+        <input type="checkbox" id="one" formControlName="one">
+        <label for="one">One</label>
+    </div>
+    <fieldset [disabled]="!this.newForma.get('one').value">
+        <input type="checkbox" id="two" formControlName="two">
+        <label for="two">Two</label>
+    </fieldset>
+    <fieldset [disabled]="!this.newForma.get('one').value">
+        <input type="checkbox" id="three" formControlName="three">
+        <label for="three">Three</label>
+    </fieldset>
+</form>
