@@ -1,12 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-
+import { CloudData, ZoomOnHoverOptions } from 'angular-tag-cloud-module';
 @Component({
   selector: 'app-documentation',
   templateUrl: './documentation.component.html',
   styleUrls: ['./documentation.component.scss']
 })
 export class DocumentationComponent implements OnInit {
-
+  data: CloudData[] = [
+    { text: 'weight-5', weight: 5 },
+    { text: 'weight-7', weight: 7 },
+    { text: 'weight-9', weight: 9 }
+    // ...
+  ];
   constructor() { }
 
   ngOnInit(): void {

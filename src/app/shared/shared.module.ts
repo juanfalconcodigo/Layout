@@ -11,6 +11,8 @@ import {NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
 import { NgImageSliderModule } from 'ng-image-slider';
 //code mirror
 import { CodemirrorModule } from '@ctrl/ngx-codemirror';
+//
+import { TagCloudModule } from 'angular-tag-cloud-module';
 @NgModule({
   declarations: [
     HeaderComponent
@@ -27,7 +29,8 @@ import { CodemirrorModule } from '@ctrl/ngx-codemirror';
     NgbDropdownModule,
     NgbModalModule,
     NgImageSliderModule,
-    CodemirrorModule
+    CodemirrorModule,
+    TagCloudModule
   ]
 })
 export class SharedModule { }
