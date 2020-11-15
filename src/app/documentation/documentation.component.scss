@@ -4,9 +4,11 @@
     width: 100%;
     margin: auto;
     display: grid;
+    grid-template-areas: 'options content' '. tagcloudword' '. ndv3';
     grid-template-columns: 1fr 4fr;
     grid-template-rows: auto;
     &__options {
+        grid-area: options;
         ul {
             position: fixed;
             list-style: none;
@@ -15,6 +17,7 @@
         }
     }
     &__content {
+        grid-area: content;
         div {
             scroll-margin-top: 50px;
             padding: 2.5rem;
@@ -22,7 +25,14 @@
         }
     }
     &__tagcloudword {
+        grid-area: tagcloudword;
         width: 100%;
         height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__ndv3 {
+        grid-area: ndv3;
     }
 }

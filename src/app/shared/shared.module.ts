@@ -11,8 +11,10 @@ import {NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
 import { NgImageSliderModule } from 'ng-image-slider';
 //code mirror
 import { CodemirrorModule } from '@ctrl/ngx-codemirror';
-//
+//Cloud words
 import { TagCloudModule } from 'angular-tag-cloud-module';
+//ndv3
+import { NvD3Module } from 'ng2-nvd3';
 @NgModule({
   declarations: [
     HeaderComponent
@@ -30,7 +32,8 @@ import { TagCloudModule } from 'angular-tag-cloud-module';
     NgbModalModule,
     NgImageSliderModule,
     CodemirrorModule,
-    TagCloudModule
+    TagCloudModule,
+    NvD3Module
   ]
 })
 export class SharedModule { }
