@@ -31,6 +31,7 @@
         "@ngrx/store-devtools": "^10.0.1",
         "angular-tag-cloud-module": "^5.2.0",
         "bootstrap": "^4.5.0",
+        "classlist.js": "^1.1.20150312",
         "codemirror": "^5.58.2",
         "cropperjs": "^1.5.9",
         "d3": "^3.5.17",
@@ -45,6 +46,7 @@
         "ontimize-web-ngx-nvd3": "^8.0.0",
         "rxjs": "~6.6.0",
         "tslib": "^2.0.0",
+        "web-animations-js": "^2.3.2",
         "zone.js": "~0.10.2"
     },
     "devDependencies": {
