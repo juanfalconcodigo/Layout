@@ -25,8 +25,8 @@
         <div>
             <span>Zoom</span>
             <span>
-                <a id="download" download="myImage.jpg" href=""
-                    (click)="download_img(feedBackResponse.fakeImage)">Download to myImage.jpg</a>
+                <a href="javascript:void(0);" (click)="downloadImage(feedBackResponse.fakeImage)">Download
+                </a>
             </span>
         </div>
     </div>
@@ -34,10 +34,4 @@
     <div class="inbox-content-container__image" *ngIf="feedBackResponse" id="id-image">
         <img [src]="feedBackResponse.fakeImage" alt="Image Feed">
     </div>
-    <!-- <div class="inbox-content-container__image" *ngIf="feedBackResponse" id="id-image">
-        <div class="img-container">
-            <img #image [src]="feedBackResponse.fakeImage" crossorigin>
-        </div>
-        <img [src]="imageDestination" class="img-preview">
-    </div> -->
 </section>
