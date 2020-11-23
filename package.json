@@ -33,6 +33,7 @@
         "bootstrap": "^4.5.0",
         "classlist.js": "^1.1.20150312",
         "codemirror": "^5.58.2",
+        "core-js": "^3.7.0",
         "cropperjs": "^1.5.9",
         "d3": "^3.5.17",
         "express": "^4.17.1",
