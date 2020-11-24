@@ -16,6 +16,7 @@ export class DocumentationComponent implements OnInit {
   //ndv3
   options;
   dataNdv3;
+  d3:any;
   constructor() { }
 
   ngOnInit(): void {
@@ -33,7 +34,7 @@ export class DocumentationComponent implements OnInit {
         y: function(d){return d.value;},
         showValues: true,
         valueFormat: function(d){
-          return d3.format(',.4f')(d);
+          return this.d3.format(',.4f')(d);
         },
         duration: 500,
         xAxis: {
