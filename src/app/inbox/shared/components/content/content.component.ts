@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import Cropper from "cropperjs";
 import { HttpClient } from '@angular/common/http';
@@ -6,9 +6,11 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
-  styleUrls: ['./content.component.scss']
+  styleUrls: ['./content.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ContentComponent implements OnInit, OnChanges, AfterViewInit {
+export class ContentComponent implements OnInit, OnChanges {
+  /*   export class ContentComponent implements OnInit, OnChanges, AfterViewInit { */
   @Input('feedBackResponse') feedBackResponse: any = null;
   @Output('emitValue') emitValue: EventEmitter<string>;
   forma: FormGroup;
@@ -32,7 +34,7 @@ export class ContentComponent implements OnInit, OnChanges, AfterViewInit {
   }
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['feedBackResponse'].previousValue !== changes['feedBackResponse'].currentValue) {
-      console.log('entro');
+      console.log('entro',changes['feedBackResponse'].previousValue,changes['feedBackResponse'].currentValue);
       let main = document.getElementById('id-main');
       let image = document.getElementById('id-image');
       if (main) {
@@ -80,7 +82,7 @@ export class ContentComponent implements OnInit, OnChanges, AfterViewInit {
 
 
   ////////////////////////
-  public ngAfterViewInit() {
+  /* public ngAfterViewInit() {
     this.cropper = new Cropper(this.imageElement.nativeElement, {
       zoomable: false,
       scalable: false,
@@ -90,7 +92,7 @@ export class ContentComponent implements OnInit, OnChanges, AfterViewInit {
         this.imageDestination = canvas.toDataURL("image/png");
       }
     });
-  }
+  } */
 
   //download image
   downloadImage(img) {
