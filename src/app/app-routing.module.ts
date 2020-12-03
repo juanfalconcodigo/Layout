@@ -1,22 +1,22 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [
+export const APP_ROUTES: Routes = [
   {
     path: '',
-    loadChildren: () => import('./home/home.module').then((m) => m.HomeModule)
+    loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
   },
   {
     path: 'documentation',
-    loadChildren: () => import('./documentation/documentation.module').then((m) => m.DocumentationModule)
+    loadChildren: () => import('./documentation/documentation.module').then(m => m.DocumentationModule)
   },
   {
     path: 'inbox',
-    loadChildren: () => import('./inbox/inbox.module').then((m) => m.InboxModule)
+    loadChildren: () => import('./inbox/inbox.module').then(m => m.InboxModule)
   },
   {
     path: 'feedback-admin/settings/:portalName/:portalId',
-    loadChildren: () => import('./setting/setting.module').then((m) => m.SettingModule)
+    loadChildren: () => import('./setting/setting.module').then(m => m.SettingModule)
   },
   {
     path: '',
@@ -31,7 +31,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{useHash:true})],
+  imports: [RouterModule.forRoot(APP_ROUTES, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

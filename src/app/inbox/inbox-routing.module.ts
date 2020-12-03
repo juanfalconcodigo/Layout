@@ -10,13 +10,13 @@ const routes: Routes = [
     children: [
       {
         path: 'All',
-        loadChildren: () => import('src/app/inbox/menu/menu.module').then((m) => m.MenuModule)
+        loadChildren: () => import('src/app/inbox/menu/menu.module').then(m => m.MenuModule)
       },
       {
         path: 'PORTAL/:param',
-        loadChildren: () => import('src/app/inbox/portal/portal.module').then((m) => m.PortalModule),
-        canActivate:[PortalGuard],
-        canLoad:[PortalGuard]
+        loadChildren: () => import('src/app/inbox/portal/portal.module').then(m => m.PortalModule),
+        canActivate: [PortalGuard],
+        canLoad: [PortalGuard]
       },
       {
         path: '',

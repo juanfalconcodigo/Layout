@@ -69,6 +69,25 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_portalService">_portalService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#router">router</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -237,7 +256,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Observable | Promise | boolean | UrlTree</code>
+                        <b>Returns : </b>    <code>Observable&lt;boolean | UrlTree&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -412,12 +431,12 @@ import { PortalService } from &#x27;../services/portal.service&#x27;;
 
 @Injectable()
 export class PortalGuard implements CanActivate, CanLoad {
-  constructor(private _portalService: PortalService, private router: Router) {
+  constructor(public _portalService: PortalService, public router: Router) {
 
   }
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable&lt;boolean | UrlTree&gt; | Promise&lt;boolean | UrlTree&gt; | boolean | UrlTree {
+    state: RouterStateSnapshot): Observable&lt;boolean | UrlTree&gt; {
     return this.validateAuthorization(route);
   }
   canLoad(

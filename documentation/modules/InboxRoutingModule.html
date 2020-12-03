@@ -82,13 +82,13 @@ const routes: Routes &#x3D; [
     children: [
       {
         path: &#x27;All&#x27;,
-        loadChildren: () &#x3D;&gt; &quot;import(&#x27;src/app/inbox/menu/menu.module&#x27;).then((m) &#x3D;&gt; m.MenuModule)&quot;
+        loadChildren: () &#x3D;&gt; &quot;import(&#x27;src/app/inbox/menu/menu.module&#x27;).then(m &#x3D;&gt; m.MenuModule)&quot;
       },
       {
         path: &#x27;PORTAL/:param&#x27;,
-        loadChildren: () &#x3D;&gt; &quot;import(&#x27;src/app/inbox/portal/portal.module&#x27;).then((m) &#x3D;&gt; m.PortalModule)&quot;,
-        canActivate:[PortalGuard],
-        canLoad:[PortalGuard]
+        loadChildren: () &#x3D;&gt; &quot;import(&#x27;src/app/inbox/portal/portal.module&#x27;).then(m &#x3D;&gt; m.PortalModule)&quot;,
+        canActivate: [PortalGuard],
+        canLoad: [PortalGuard]
       },
       {
         path: &#x27;&#x27;,

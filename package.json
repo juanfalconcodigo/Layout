@@ -13,7 +13,10 @@
         "dev": "npm run config -- --environment=dev &&ng build -c=dev --base-href=\"./\"",
         "qa": "npm run config -- --environment=qa &&ng build -c=qa --base-href=\"./\"",
         "prod": "npm run config -- --environment=prod &&ng build --prod --base-href=\"./\"",
-        "compodoc": "npx compodoc -p tsconfig.app.json src"
+        "compodoc": "npx compodoc -p tsconfig.json src",
+        "material.theme": "npx compodoc -p tsconfig.json src --theme material",
+        "aditional": "npx compodoc -p tsconfig.json src --theme material --includes ./aditional",
+        "compodoc.coverage": "npx compodoc -p tsconfig.json src --theme material --includes ./aditional -w"
     },
     "private": true,
     "dependencies": {

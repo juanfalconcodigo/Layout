@@ -73,22 +73,22 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { Routes, RouterModule } from &#x27;@angular/router&#x27;;
 
-const routes: Routes &#x3D; [
+export const APP_ROUTES: Routes &#x3D; [
   {
     path: &#x27;&#x27;,
-    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./home/home.module&#x27;).then((m) &#x3D;&gt; m.HomeModule)&quot;
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./home/home.module&#x27;).then(m &#x3D;&gt; m.HomeModule)&quot;
   },
   {
     path: &#x27;documentation&#x27;,
-    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./documentation/documentation.module&#x27;).then((m) &#x3D;&gt; m.DocumentationModule)&quot;
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./documentation/documentation.module&#x27;).then(m &#x3D;&gt; m.DocumentationModule)&quot;
   },
   {
     path: &#x27;inbox&#x27;,
-    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./inbox/inbox.module&#x27;).then((m) &#x3D;&gt; m.InboxModule)&quot;
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./inbox/inbox.module&#x27;).then(m &#x3D;&gt; m.InboxModule)&quot;
   },
   {
     path: &#x27;feedback-admin/settings/:portalName/:portalId&#x27;,
-    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./setting/setting.module&#x27;).then((m) &#x3D;&gt; m.SettingModule)&quot;
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./setting/setting.module&#x27;).then(m &#x3D;&gt; m.SettingModule)&quot;
   },
   {
     path: &#x27;&#x27;,
@@ -103,7 +103,7 @@ const routes: Routes &#x3D; [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{useHash:true})],
+  imports: [RouterModule.forRoot(APP_ROUTES, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -9,6 +9,7 @@
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
@@ -27,73 +28,12 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content module">
+               <div class="content additional-page">
                    <div class="content-data">
 
 
 
-<ol class="breadcrumb">
-    <li>Modules</li>
-    <li>SettingRoutingModule</li>
-</ol>
 
-
-<ul class="nav nav-tabs" role="tablist">
-    <li  class="active" >
-        <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
-    </li>
-    <li >
-        <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-    </li>
-</ul>
-
-<div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info">
-
-        <p class="comment">
-            <h3>File</h3>
-        </p>
-        <p class="comment">
-            <code>src/app/setting/setting-routing.module.ts</code>
-        </p>
-
-
-
-
-        <div class="container-fluid module">
-            <div class="row">
-            </div>
-        </div>
-
-
-    </div>
-
-
-    <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
-import { Routes, RouterModule } from &#x27;@angular/router&#x27;;
-import { SettingComponent } from &#x27;./setting.component&#x27;;
-
-const routes: Routes &#x3D; [
-  {
-    path: &#x27;&#x27;, component: SettingComponent,
-    children: [
-      { path: &#x27;notification&#x27;, loadChildren: () &#x3D;&gt; &quot;import(&#x27;./notification/notification.module&#x27;).then(m &#x3D;&gt; m.NotificationModule)&quot; },
-      { path: &#x27;user&#x27;, loadChildren: () &#x3D;&gt; &quot;import(&#x27;./user/user.module&#x27;).then(m &#x3D;&gt; m.UserModule)&quot; },
-      { path: &#x27;&#x27;, pathMatch: &#x27;full&#x27;, redirectTo: &#x27;notification&#x27; },
-      { path: &#x27;**&#x27;, pathMatch: &#x27;full&#x27;, redirectTo: &#x27;notification&#x27; }
-    ]
-  }
-];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
-})
-export class SettingRoutingModule { }
-</code></pre>
-    </div>
-</div>
 
 
 
@@ -108,6 +48,8 @@ export class SettingRoutingModule { }
 
 
 
+
+<h1 id="fichero-b">Fichero B</h1>
 
                    </div><div class="search-results">
     <div class="has-results">
@@ -125,8 +67,8 @@ export class SettingRoutingModule { }
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'module';
-            var COMPODOC_CURRENT_PAGE_URL = 'SettingRoutingModule.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'additional-page';
+            var COMPODOC_CURRENT_PAGE_URL = 'b-title.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
