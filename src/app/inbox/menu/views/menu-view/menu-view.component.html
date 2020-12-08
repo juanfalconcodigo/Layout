@@ -1,6 +1,7 @@
 <section class="menu-inbox" *ngIf="this.portalInfo">
     <div class="menu-inbox__box" *ngFor="let portal of  this.portalInfo.portals">
         <div>{{portal.name}}</div>
-        <a id="next" [routerLink]="['/inbox/PORTAL',portal.name]">See More <span class="arrow"><i class="fa fa-chevron-right" aria-hidden="true"></i></span></a>
+        <!-- <a id="next" [routerLink]="['/inbox/PORTAL',portal.name]">See More <span class="arrow"><i class="fa fa-chevron-right" aria-hidden="true"></i></span></a> -->
+        <app-arrow-router [routerCustom]="['/inbox/PORTAL',portal.name]"></app-arrow-router>
     </div>
 </section>

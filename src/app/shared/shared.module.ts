@@ -15,9 +15,11 @@ import { CodemirrorModule } from '@ctrl/ngx-codemirror';
 import { TagCloudModule } from 'angular-tag-cloud-module';
 //ndv3
 import { NvD3Module } from 'ng2-nvd3';
+import { ArrowRouterComponent } from './components/arrow-router/arrow-router.component';
 @NgModule({
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    ArrowRouterComponent
   ],
   imports: [
     CommonModule,
@@ -26,6 +28,7 @@ import { NvD3Module } from 'ng2-nvd3';
   exports: [
     RouterModule,
     HeaderComponent,
+    ArrowRouterComponent,
     FormsModule,
     ReactiveFormsModule,
     NgbDropdownModule,

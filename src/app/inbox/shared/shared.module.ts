@@ -20,7 +20,8 @@ import { LoadingComponent } from './components/loading/loading.component';
     ContentComponent,
     AdditionalComponent,
     ExtraComponent,
-    LoadingComponent
+    LoadingComponent,
+    AppSharedModule
   ]
 })
 export class SharedModule { }
