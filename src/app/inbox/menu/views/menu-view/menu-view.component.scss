@@ -16,3 +16,41 @@
         }
     }
 }
+
+#next {
+    cursor: pointer;
+    position: absolute;
+    float: right;
+    width: auto;
+    color: #383736;
+    font-weight: bold;
+    font-size: inherit;
+    user-select: none;
+    transition: 0.2s ease-in;
+    bottom: 10px;
+    right: 10px;
+    text-decoration: none;
+}
+
+#next:before {
+    content: "";
+    position: absolute;
+    color: #383736;
+    right: 50%;
+    opacity: 0;
+    transition: 0.6s ease-in;
+    padding-right: 5px;
+}
+
+#next:hover:before {
+    opacity: 1;
+}
+
+#next span {
+    display: inline-block;
+    transition: 0.6s ease-in;
+}
+
+#next:hover span {
+    transform: translateX(50%);
+}

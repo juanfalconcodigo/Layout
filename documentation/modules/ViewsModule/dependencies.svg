@@ -22,57 +22,29 @@
 <text text-anchor="start" x="429.73" y="-15.4" font-family="sans-serif" font-size="14.00"> &#160;Exports</text>
 <g id="clust1" class="cluster">
 <title>cluster_ViewsModule</title>
-<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="24.5,-70 24.5,-195 471.5,-195 471.5,-70 24.5,-70"/>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="160,-70 160,-195 336,-195 336,-70 160,-70"/>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_ViewsModule_declarations</title>
-<polygon fill="none" stroke="black" points="301.5,-78 301.5,-130 463.5,-130 463.5,-78 301.5,-78"/>
+<polygon fill="none" stroke="black" points="168,-78 168,-130 328,-130 328,-78 168,-78"/>
 </g>
-<g id="clust4" class="cluster">
-<title>cluster_ViewsModule_imports</title>
-<polygon fill="none" stroke="black" points="32.5,-78 32.5,-130 293.5,-130 293.5,-78 32.5,-78"/>
-</g>
-<!-- PortalViewComponent -->
+<!-- MenuViewComponent -->
 <g id="node1" class="node">
-<title>PortalViewComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="455.09,-122 309.91,-122 309.91,-86 455.09,-86 455.09,-122"/>
-<text text-anchor="middle" x="382.5" y="-99.8" font-family="Times,serif" font-size="14.00">PortalViewComponent</text>
+<title>MenuViewComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="320.31,-122 175.69,-122 175.69,-86 320.31,-86 320.31,-122"/>
+<text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00">MenuViewComponent</text>
 </g>
 <!-- ViewsModule -->
 <g id="node2" class="node">
 <title>ViewsModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="290.31,-187 287.31,-191 266.31,-191 263.31,-187 194.69,-187 194.69,-151 290.31,-151 290.31,-187"/>
-<text text-anchor="middle" x="242.5" y="-164.8" font-family="Times,serif" font-size="14.00">ViewsModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="295.81,-187 292.81,-191 271.81,-191 268.81,-187 200.19,-187 200.19,-151 295.81,-151 295.81,-187"/>
+<text text-anchor="middle" x="248" y="-164.8" font-family="Times,serif" font-size="14.00">ViewsModule</text>
 </g>
-<!-- PortalViewComponent&#45;&gt;ViewsModule -->
+<!-- MenuViewComponent&#45;&gt;ViewsModule -->
 <g id="edge1" class="edge">
-<title>PortalViewComponent&#45;&gt;ViewsModule</title>
-<path fill="none" stroke="black" d="M382.5,-122.11C382.5,-141.34 382.5,-169 382.5,-169 382.5,-169 300.29,-169 300.29,-169"/>
-<polygon fill="black" stroke="black" points="300.29,-165.5 290.29,-169 300.29,-172.5 300.29,-165.5"/>
-</g>
-<!-- CoreModule -->
-<g id="node3" class="node">
-<title>CoreModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="285.76,-122 282.76,-126 261.76,-126 258.76,-122 199.24,-122 199.24,-86 285.76,-86 285.76,-122"/>
-<text text-anchor="middle" x="242.5" y="-99.8" font-family="Times,serif" font-size="14.00">CoreModule</text>
-</g>
-<!-- CoreModule&#45;&gt;ViewsModule -->
-<g id="edge2" class="edge">
-<title>CoreModule&#45;&gt;ViewsModule</title>
-<path fill="none" stroke="black" d="M242.5,-122.11C242.5,-122.11 242.5,-140.99 242.5,-140.99"/>
-<polygon fill="black" stroke="black" points="239,-140.99 242.5,-150.99 246,-140.99 239,-140.99"/>
-</g>
-<!-- ViewsRoutingModule -->
-<g id="node4" class="node">
-<title>ViewsRoutingModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="180.93,-122 177.93,-126 156.93,-126 153.93,-122 40.07,-122 40.07,-86 180.93,-86 180.93,-122"/>
-<text text-anchor="middle" x="110.5" y="-99.8" font-family="Times,serif" font-size="14.00">ViewsRoutingModule</text>
-</g>
-<!-- ViewsRoutingModule&#45;&gt;ViewsModule -->
-<g id="edge3" class="edge">
-<title>ViewsRoutingModule&#45;&gt;ViewsModule</title>
-<path fill="none" stroke="black" d="M110.5,-122.11C110.5,-141.34 110.5,-169 110.5,-169 110.5,-169 184.47,-169 184.47,-169"/>
-<polygon fill="black" stroke="black" points="184.47,-172.5 194.47,-169 184.47,-165.5 184.47,-172.5"/>
+<title>MenuViewComponent&#45;&gt;ViewsModule</title>
+<path fill="none" stroke="black" d="M248,-122.11C248,-122.11 248,-140.99 248,-140.99"/>
+<polygon fill="black" stroke="black" points="244.5,-140.99 248,-150.99 251.5,-140.99 244.5,-140.99"/>
 </g>
 </g>
 </svg>

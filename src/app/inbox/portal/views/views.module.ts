@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ViewsRoutingModule } from './views-routing.module';
+import { PortalInboxRoutingModule as ViewsRoutingModule } from './views-routing.module';
 import { PortalViewComponent } from './portal-view/portal-view.component';
 import { CoreModule } from '../core/core.module';
 

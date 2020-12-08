@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ViewsRoutingModule } from './views-routing.module';
+import { UserSettingRoutingModule as ViewsRoutingModule } from './views-routing.module';
 import { UserViewComponent } from './user-view/user-view.component';
 
 
