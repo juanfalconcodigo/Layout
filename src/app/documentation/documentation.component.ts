@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { CloudData, ZoomOnHoverOptions } from 'angular-tag-cloud-module';
+import { element } from 'protractor';
 
 
 @Component({
@@ -31,6 +32,11 @@ export class DocumentationComponent implements OnInit, AfterViewInit {
 
 
   ngOnInit(): void {
+    const element:any = document.getElementsByClassName('delete boder');
+    console.log(element);
+    if(element[element.length-1]){
+      element[element.length-1].style.display='none';
+    }
     this.options = {
       chart: {
         type: 'discreteBarChart',
@@ -45,7 +51,7 @@ export class DocumentationComponent implements OnInit, AfterViewInit {
         y: function (d) { return d.value; },
         showValues: true,
         valueFormat: function (d) {
-          return this.d3.format(',.4f')(d);
+          return d3.format(',.4f')(d);
         },
         duration: 500,
         xAxis: {
