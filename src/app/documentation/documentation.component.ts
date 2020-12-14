@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import { CloudData, ZoomOnHoverOptions } from 'angular-tag-cloud-module';
-import { element } from 'protractor';
+import { fromEvent, Subscription } from 'rxjs';
+import { map, pluck, tap } from 'rxjs/operators';
 
 
 @Component({
@@ -8,7 +9,7 @@ import { element } from 'protractor';
   templateUrl: './documentation.component.html',
   styleUrls: ['./documentation.component.scss']
 })
-export class DocumentationComponent implements OnInit, AfterViewInit {
+export class DocumentationComponent implements OnInit, AfterViewInit, OnDestroy {
   data: CloudData[] = [
     { text: 'weight-5', weight: 5 },
     { text: 'weight-7', weight: 7 },
@@ -20,7 +21,9 @@ export class DocumentationComponent implements OnInit, AfterViewInit {
   dataNdv3;
   d3: any;
   @ViewChild("initialize", { static: false }) initialize: ElementRef;
+  subscriptionScroll: Subscription = null;
   constructor() { }
+
 
   ngAfterViewInit(): void {
     //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
@@ -32,10 +35,10 @@ export class DocumentationComponent implements OnInit, AfterViewInit {
 
 
   ngOnInit(): void {
-    const element:any = document.getElementsByClassName('delete boder');
+    const element: any = document.getElementsByClassName('delete boder');
     console.log(element);
-    if(element[element.length-1]){
-      element[element.length-1].style.display='none';
+    if (element[element.length - 1]) {
+      element[element.length - 1].style.display = 'none';
     }
     this.options = {
       chart: {
@@ -102,6 +105,31 @@ export class DocumentationComponent implements OnInit, AfterViewInit {
         ]
       }
     ];
+    //scroll
+    this.subscriptionScroll = fromEvent(document, 'scroll').pipe(
+     pluck('target','documentElement','scrollTop')
+    ).subscribe(
+      (x) => {
+        console.log('Next: Clicked!', x);
+        if(x>='430'&&x<760){
+          document.getElementById("initialize-fix").classList.add("mystyle");
+          document.getElementById("configuration-fix").classList.remove("mystyle");
+        }
+        if(x>='760'&&x<1080){
+          document.getElementById("configuration-fix").classList.add("mystyle");
+          document.getElementById("initialize-fix").classList.remove("mystyle");
+        }
+      },
+      (err) => {
+        console.log('Error: %s', err);
+      },
+      () => {
+        console.log('Completed');
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptionScroll && this.subscriptionScroll.unsubscribe();
   }
 
   toUser() {
